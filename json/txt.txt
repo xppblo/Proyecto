@@ -1,0 +1,87 @@
+<div class="col-md-4">
+          <label for="regiones">Regiones</label>
+          <select class="form-control" name="regiones" id="regiones" onchange="filtrarComunas(this.value)">
+            <option value="">Seleccione</option> 
+            {% for region in regiones %}
+            <option value="{{ region.id }}">{{ region.nombre }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="comunas">Comunas</label>
+          <select class="form-control" name="comunas" id="comunas">
+            <option value="">Seleccione</option>
+          </select>
+        </div>
+        
+        
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js"
+    integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+  <script src="{% static 'js/script.js' %}"></script>
+  
+  
+JS
+
+const filtrarComunas = async (regionId) => {
+  const csrfTokenValue = document.querySelector(
+    "[name=csrfmiddlewaretoken]"
+  ).value;
+  const headers = {
+    "X-CSRFToken": csrfTokenValue,
+  };
+
+  let url = "/filtrar-comunas/"; 
+  try {
+    const response = await axios.post(url, { regionId }, { headers });
+
+    //console.log(response);
+    const { data, status } = response;
+
+    if (status == 200) {
+      let selectComunas = document.querySelector("#comunas");
+      selectComunas.innerHTML = "";
+
+      // Crea una opción por defecto
+      const defaultOption = document.createElement("option");
+      defaultOption.value = "";
+      defaultOption.text = "Seleccione";
+      selectComunas.appendChild(defaultOption);
+
+      // Itera sobre la data para agregar las comunas al select
+      data.data.forEach((item) => {
+        const option = document.createElement("option");
+        option.value = item.id;
+        option.text = item.nombre;
+        selectComunas.appendChild(option);
+      });
+    } else {
+      console.log("No hay comunas disponibles");
+    }
+  } catch (error) {
+    console.log("Error en la petición", error);
+  }
+};
+
+URLS
+path('filtrar-comunas/', filtrar_comunas, name='filtrar_comunas'),
+
+VIEWS
+
+def filtrar_comunas(request):
+    try:
+        if request.method == 'POST':
+            data = json.loads(request.body)
+            regionId = data.get('regionId')
+            print('**** region id ****',regionId)
+            dataBD = list(Comuna.objects.filter(
+                region=regionId).values()
+                )
+            print('**** dataBD ****',dataBD)
+            return JsonResponse({'status': 200, 'data': dataBD})
+        else:
+            return JsonResponse({'error': 'Método no permitido'}, status=405)
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=400)
+        

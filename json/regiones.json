@@ -1,0 +1,130 @@
+[
+{
+  "model": "myapp.region",
+  "fields": {
+    "name": "Arica y Parinacota",
+    "romanNumber": "XV",
+    "number": 15
+  }
+},
+{
+    "model": "myapp.region",
+    "fields": {
+        "name": "Tarapacá",
+        "romanNumber": "I",
+        "number": 1
+    }
+},
+{
+    "model": "myapp.region",
+    "fields": {
+        "name": "Antofagasta",
+        "romanNumber": "II",
+        "number": 2
+    }
+},
+{
+    "model": "myapp.region",
+    "fields": {
+        "name": "Atacama",
+        "romanNumber": "III",
+        "number": 3
+    }
+},
+{
+    "model": "myapp.region",
+    "fields": {
+        "name": "Coquimbo",
+        "romanNumber": "IV",
+        "number": 4
+    }
+},
+{
+    "model": "myapp.region",
+    "fields": {
+        "name": "Valparaíso",
+        "romanNumber": "V",
+        "number": 5
+    }
+},
+{
+    "model": "myapp.region",
+    "fields": {
+        "name": "Metropolitana de Santiago",
+        "romanNumber": "XIII",
+        "number": 13
+    }
+},
+{
+    "model": "myapp.region",
+    "fields": {
+        "name": "Libertador Gral. Bernardo O’Higgins",
+        "romanNumber": "VI",
+        "number": 6
+    }
+},
+{
+    "model": "myapp.region",
+    "fields": {
+        "name": "Maule",
+        "romanNumber": "VII",
+        "number": 7
+    }
+},
+{
+    "model": "myapp.region",
+    "fields": {
+        "name": "Ñuble",
+        "romanNumber": "XVI",
+        "number": 16
+    }
+},
+{
+    "model": "myapp.region",
+    "fields": {
+        "name": "Biobío",
+        "romanNumber": "VIII",
+        "number": 8
+    }
+},
+{
+    "model": "myapp.region",
+    "fields": {
+        "name": "Araucanía",
+        "romanNumber": "IX",
+        "number": 9
+    }
+},
+{
+    "model": "myapp.region",
+    "fields": {
+        "name": "Los Ríos",
+        "romanNumber": "XIV",
+        "number": 14
+    }
+},
+{
+    "model": "myapp.region",
+    "fields": {
+        "name": "Los Lagos",
+        "romanNumber": "X",
+        "number": 10
+    }
+},
+{
+    "model": "myapp.region",
+    "fields": {
+        "name": "Aisén del Gral. Carlos Ibáñez del Campo",
+        "romanNumber": "XI",
+        "number": 11
+    }
+},
+{
+    "model": "myapp.region",
+    "fields": {
+        "name": "Magallanes y de la Antártica Chilena",
+        "romanNumber": "XII",
+        "number": 12
+    }
+}
+]

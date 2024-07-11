@@ -1,0 +1,47 @@
+[
+{
+  "model": "myapp.inmueble",
+  "pk": 1,
+  "fields": {
+    "nombre": "Casa 1",
+    "descripcion": "Casa para arrendar",
+    "direccion": "Santo Domingo 1243",
+    "depto": "805",
+    "m2_construidos": 50.0,
+    "m2_totales": 100.0,
+    "estacionamientos": 1,
+    "habitaciones": 3,
+    "banios": 2,
+    "precio": 850000.0,
+    "arrendado": false,
+    "tipo_inmueble": 2,
+    "region": 7,
+    "comuna": 132,
+    "usuarios": [
+      1
+    ]
+  }
+},
+{
+  "model": "myapp.inmueble",
+  "fields": {
+    "nombre": "Casa grande",
+    "descripcion": "Casa para arrendar",
+    "direccion": "El Abeto 8720",
+    "depto": "",
+    "m2_construidos": 87.0,
+    "m2_totales": 120.0,
+    "estacionamientos": 1,
+    "habitaciones": 4,
+    "banios": 2,
+    "precio": 1000000.0,
+    "arrendado": false,
+    "tipo_inmueble": 1,
+    "region": 7,
+    "comuna": 120,
+    "usuarios": [
+      3
+    ]
+  }
+}
+]

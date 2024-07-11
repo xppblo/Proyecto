@@ -1,0 +1,39 @@
+[
+{
+  "model": "myapp.usuario",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "rut": "19.739.605-9",
+    "telefono": "56956164088",
+    "tipo_usuario": 1
+  }
+},
+{
+  "model": "myapp.usuario",
+  "fields": {
+    "user": 2,
+    "rut": "9.999.999-9",
+    "telefono": "555555555",
+    "tipo_usuario": 1
+  }
+},
+{
+  "model": "myapp.usuario",
+  "fields": {
+    "user": 3,
+    "rut": "7.777.777-7",
+    "telefono": "66666666",
+    "tipo_usuario": 2
+  }
+},
+{
+  "model": "myapp.usuario",
+  "fields": {
+    "user": 4,
+    "rut": "5.555.555-9",
+    "telefono": "77777777",
+    "tipo_usuario": 2
+  }
+}
+]
