@@ -6,9 +6,9 @@ def crear_tipo_usuario(nombre):
     tipo_usuario.save()
     return tipo_usuario
 
-def crear_usuario(nombre, apellido, tipo_usuario_id, telefono, rut):
+def crear_usuario(tipo_usuario_id, telefono, rut):
     tipo_usuario = TipoUsuario.objects.get(id=tipo_usuario_id)
-    usuario = Usuario(nombre=nombre, apellido=apellido, tipo_usuario=tipo_usuario, rut=rut, telefono=telefono)
+    usuario = Usuario(tipo_usuario=tipo_usuario, rut=rut, telefono=telefono)
     usuario.save()
     return usuario
 

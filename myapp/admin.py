@@ -6,6 +6,10 @@ from .models import Region, Comuna, Usuario, Inmueble, TipoInmueble, TipoUsuario
 admin.site.register(Region)
 admin.site.register(Comuna)
 admin.site.register(Usuario)
-admin.site.register(Inmueble)
 admin.site.register(TipoInmueble)
 admin.site.register(TipoUsuario)
+
+class InmuebleAdmin(admin.ModelAdmin):
+    list_display = ['id', 'nombre', 'arrendado', 'comuna', 'region']
+
+admin.site.register(Inmueble,InmuebleAdmin)

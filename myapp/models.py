@@ -9,7 +9,7 @@ class Region(models.Model):
     number = models.IntegerField(null=False, blank=False)
     
     def __str__(self):
-        return f" {self.name} - {self.romanNumber} - {self.number}"
+        return f" {self.name}"
 
 class Comuna(models.Model):
     nombre = models.CharField(max_length=50, blank=False, null=False)
@@ -22,7 +22,7 @@ class TipoUsuario(models.Model):
     nombre = models.CharField(max_length=20, null=False, blank=False)
      
     def __str__(self):
-        return f" {self.nombre}"
+        return f"{self.id} - {self.nombre}"
     
 class Usuario(models.Model):
     user = models.OneToOneField(User, null=False, blank=False, on_delete= models.CASCADE)
@@ -38,12 +38,12 @@ class TipoInmueble(models.Model):
     descripcion = models.CharField(max_length=50, null=False, blank=False)
     
     def __str__(self):
-        return f" {self.nombre}"
+        return f"{self.id} - {self.nombre}"
     
 class Inmueble(models.Model):
     nombre = models.CharField(max_length=100)
-    descripcion = models.CharField(null=False, blank=False)
-    direccion = models.TextField(max_length=255)
+    descripcion = models.TextField()
+    direccion = models.CharField(max_length=255, null=False, blank=False)
     depto = models.CharField(max_length=20, blank=True)
     m2_construidos = models.FloatField(null=False, blank=False)
     m2_totales = models.FloatField(null=False, blank=False)

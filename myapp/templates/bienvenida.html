@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %} Bienvenido cliente{% endblock %}
+
+{% block 'content' %}
+<div class="container">
+    <h2 class="my-2">Bienvenido {{ user.first_name }}</h2>
+    <h2 class="text-center py-2">Mis propiedades</h2>
+    <hr class="border-2 py-2"/>
+    {% block 'cards' %}
+    {% include "cards.html" %}
+    {% endblock  %}
+</div>
+{% endblock%}
