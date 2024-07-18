@@ -16,12 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from myapp.views import index, registro
+from myapp.views import index, registro, bienvenido, usuario_actualizar
 
 urlpatterns = [
  path('admin/', admin.site.urls),
  path('', index, name='index'),
- path('registro/', registro, name='registro'), 
+ path('registro/', registro, name='registro'),
+ path('bienvenido/', bienvenido, name='bienvenido'),
+ path("usuario/actualizar", usuario_actualizar, name='usuario_actualizar'),
+ path("select2/", include("django_select2.urls")), 
  path('accounts/', include('django.contrib.auth.urls')),
 ]
 

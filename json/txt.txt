@@ -84,4 +84,76 @@ def filtrar_comunas(request):
             return JsonResponse({'error': 'Método no permitido'}, status=405)
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=400)
+
+
+pip install django-select2
+
+#en settings
+INSTALLED_APPS = [
+    # other 3rd party apps…
+    'django_select2',
+]
+
+#urls.py
+path("select2/", include("django_select2.urls")),
+
+#urls.py app
+    path('crear/comuna',views.crear_comuna,name='crear-comuna'),
+    path("comuna/crear", views.ComunaCreateView.as_view(), name="comuna-crear"),
+    
+
+#views.py
+
+def crear_comuna(request):
+    context={
+        'form': Select2Form()
+    } 
+
+    return render(request,"comuna.html",context)
+
+class ComunaCreateView(generic.CreateView):
+    model = Comuna
+    form_class = ComunaForm
+    template_name = 'comuna.html'
+    
+    
+#forms.py
+from django_select2 import forms as s2forms
+
+class Select2Form(forms.Form):
+    name = forms.CharField(label='Comuna', max_length=100,widget=forms.TextInput(attrs={'placeholder': 'Name', 'style': 'width: 300px;'}))  
+    region = forms.ChoiceField(
+        widget=s2forms.ModelSelect2Widget(
+            model=Region,
+            search_fields=['name__icontains'],
+            attrs={'style': 'width: 300px;','class': 'form-control'}
+        )
+    )
+
+class RegionWidget(s2forms.ModelSelect2Widget):
+    search_fields = [
+        'name__icontains',
+    ]
+
+class ComunaForm(s2forms.forms.ModelForm):
+    class Meta:
+        model = Comuna
+        fields = ['name','region']
+        widgets = {
+            'region': RegionWidget,
+        }
         
+        
+#comuna.html
+{% extends 'base.html'%}
+{%load static %}
+
+{%block 'content'%}
+    <h1>Crear nueva Comuna</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-info">Crear</button>
+    </form>
+
+{%endblock%}

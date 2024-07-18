@@ -2,25 +2,41 @@
 {% load static %}
 {% block 'content' %}
 
-    <div class="container my-5">
-        <form action="" method="POST">
-            <div class="row">
-                <div class="col-5">
-                    <select class="form-select" aria-label="Default select example">
+<div class="container my-5">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="row d-flex align-items-center">
+            <div class="col-3">
+                <select class="form-select" aria-label="Default select example">
                     <option selected>Seleccionar</option>
                     {% for tipo in tipo_inmuebles %}
                     <option value={{tipo.id}}>{{tipo.nombre}}</option>
                     {% endfor %}
-                  </select></div>
-                <div class="col-5">
-                    <input type="text" class="form-control" id="comuna" placeholder="Comuna" name="comuna">
-                </div>
-                <div class="col-2">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
-                </div>
+                </select>
             </div>
-        </form>
-    </div>
+            <div class="col-3">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Región</option>
+                    {% for region in lista_regiones %}
+                    <option value={{region.id}}>{{region.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-3">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Comuna</option>
+                    {% for comuna in lista_comunas %}
+                    <option value={{comuna.id}}>{{comuna.nombre}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary shadow">Buscar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
 <!-- Fin carousel -->
 <h2 class="text-center py-2">Arriendos</h2>
 <hr class="border-2 py-2"/>

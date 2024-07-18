@@ -13,7 +13,7 @@
             
             {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link color-letters" href="">Bienvenido</a>
+              <a class="nav-link color-letters" href="{% url "bienvenido" %}">Bienvenido</a>
             </li>
             <li class="nav-item">
               <a class="nav-link color-letters" aria-current="page" href="{% url "index" %}">Inicio</a>
@@ -31,6 +31,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   {% if user.is_authenticated %}
+                  <li><a class="dropdown-item" href="{% url 'usuario_actualizar' %}">Editar Perfil</a></li>
                   <form method="post" action="{% url 'logout' %}">
                     {% csrf_token %}
                     <button class="dropdown-item" type="submit">Cerrar sesión</button>
