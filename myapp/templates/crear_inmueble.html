@@ -1,0 +1,69 @@
+{% extends 'base.html'%}
+{%load static %}
+
+{%block 'content'%}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h1 class="text-center my-4">Crear nuevo Inmueble</h1>
+        <form method="POST" action="/lista_inmueble">
+            {% csrf_token %}
+        <p>
+            <label for="id_nombre">Nombre:</label>
+            <input type="text" name="nombre" class="form-control" maxlength="100" required="" id="id_nombre">
+        </p>
+        <p>
+            <label for="id_direccion">Dirección:</label>
+            <input type="text" name="direccion" class="form-control" maxlength="255" required="" id="id_direccion">
+        </p>
+        <p>
+            <label for="id_depto">Numero de Departamento:</label>
+            <input type="number" name="depto" class="form-control" min="0" value="0" maxlength="20" id="id_depto">
+        </p>
+        <p>
+            <label for="id_m2_construidos">M2 construidos:</label>
+            <input type="number" name="m2_construidos" class="form-control" min="0" value="0" step="any" required="" id="id_m2_construidos">
+        </p>
+        <p>
+            <label for="id_m2_totales">M2 totales:</label>
+            <input type="number" name="m2_totales" class="form-control" min="0" value="0" step="any" required="" id="id_m2_totales">
+        </p>
+        <p>
+            <label for="id_estacionamientos">Estacionamientos:</label>
+            <input type="number" name="estacionamientos" class="form-control" min="0" max="10" value="0" required="" id="id_estacionamientos">
+        </p>
+        <p>
+            <label for="id_habitaciones">Habitaciones:</label>
+            <input type="number" name="habitaciones" class="form-control" min="0" max="10" value="0" required="" id="id_habitaciones">
+        </p>
+        <p>
+            <label for="id_banios">Numero de Baños:</label>
+            <input type="number" name="banios" class="form-control" min="0" max="10" value="0" required="" id="id_banios">
+        </p>
+        <p>
+            <label for="id_precio">Precio:</label>
+            <input type="number" name="precio" class="form-control" min="0" value="0" step="any" required="" id="id_precio">
+        </p>
+        <p>
+            <label for="id_tipo_inmueble">Tipo Inmueble:</label>
+            {{form.tipo_inmueble}}
+        </p>
+        <p>
+            <label for="id_tipo_inmueble">Región:</label>
+            {{form.region}}
+        </p>
+        <p>
+            <label for="id_tipo_inmueble">Comuna:</label>
+            {{form.comuna}}
+        </p>      
+        <p>
+            <label for="id_descripcion">Descripción:</label>
+            <textarea name="descripcion" cols="10" rows="2" class="form-control" required="" id="id_descripcion"></textarea>  
+        </p>                
+        <div class="text-center my-3">
+            <button type="submit" class="btn btn-primary">Crear Inmueble</button>
+            <a href="{% url 'lista_inmueble' %}" class="btn btn-secondary">Volver</a>
+        </div>
+        </form>
+    </div>
+</div>
+{%endblock%}

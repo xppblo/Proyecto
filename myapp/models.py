@@ -39,7 +39,7 @@ class TipoInmueble(models.Model):
     descripcion = models.CharField(max_length=50, null=False, blank=False)
     
     def __str__(self):
-        return f"{self.id} - {self.nombre}"
+        return f"{self.nombre}"
     
 class Inmueble(models.Model):
     nombre = models.CharField(max_length=100)

@@ -1,43 +1,46 @@
-{% extends "base.html" %} {% block title %} Bienvenido a Arrendados {% endblock%}
+{% extends "base.html" %} {% block title %} Bienvenido a Sistema de arriendo {% endblock%}
 {% load static %}
 {% block 'content' %}
 
 <div class="container my-5">
-    <form action="" method="POST">
-        {% csrf_token %}
-        <div class="row d-flex align-items-center">
-            <div class="col-3">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Seleccionar</option>
-                    {% for tipo in tipo_inmuebles %}
-                    <option value={{tipo.id}}>{{tipo.nombre}}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="col-3">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Región</option>
-                    {% for region in lista_regiones %}
-                    <option value={{region.id}}>{{region.name}}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="col-3">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Comuna</option>
-                    {% for comuna in lista_comunas %}
-                    <option value={{comuna.id}}>{{comuna.nombre}}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="col-2">
-                <button type="submit" class="btn btn-primary shadow">Buscar</button>
-            </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="row d-flex align-items-center justify-content-center">
+                    <div class="col-12 col-md-3 mb-2 mb-md-0">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Seleccionar</option>
+                            {% for tipo in tipo_inmuebles %}
+                            <option value="{{tipo.id}}">{{tipo.nombre}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-3 mb-2 mb-md-0">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Región</option>
+                            {% for region in lista_regiones %}
+                            <option value="{{region.id}}">{{region.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-3 mb-2 mb-md-0">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Comuna</option>
+                            {% for comuna in lista_comunas %}
+                            <option value="{{comuna.id}}">{{comuna.nombre}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-2 text-center">
+                        <button type="submit" class="btn btn-primary shadow">Buscar</button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>
 
-<!-- Fin carousel -->
 <h2 class="text-center py-2">Arriendos</h2>
 <hr class="border-2 py-2"/>
 <!-- Cards -->

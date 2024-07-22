@@ -5,14 +5,14 @@
 {% block 'content' %}
 <div class="container">
     <h2 class="my-2">Hola {{ user.first_name }}</h2>
-    {% if  user.usuario.tipo_usuario.id == '1'%}
+    {% if  user.usuario.tipo_usuario != 2%}
     <h2 class="text-center py-2">Mis propiedades</h2>
     {% else %}
     <h2 class="text-center py-2">Mis arriendos</h2>
     {% endif %}
     <hr class="border-2 py-2"/>
-    {% if user.usuario.tipo_usuario.id == '1' %}
-        <button class="btn btn-primary my-3">Agregar Propiedad</button>
+    {% if user.usuario.tipo_usuario != 2 %}
+    <a href="{% url 'crear-inmueble' %}" class="btn btn-primary my-3">Crear Inmueble</a>
     {% endif %}
     {% block 'cards' %}
     {% include "cards.html" %}
