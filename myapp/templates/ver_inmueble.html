@@ -1,0 +1,70 @@
+{% extends 'base.html'%}
+{% block title %} Descripción inmueble{% endblock %}
+{%load static %}
+
+{%block 'content'%}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center my-4">Descripción Inmueble</h1>
+            <div class="info-box">
+                <p>
+                    <label for="id_nombre">Nombre:</label>
+                    {{inmueble.nombre}}
+                </p>
+                <p>
+                    <label for="id_direccion">Dirección:</label>
+                    {{inmueble.direccion}}
+                </p>
+                <p>
+                    <label for="id_depto">Número de Departamento:</label>
+                    {{inmueble.depto}}
+                </p>
+                <p>
+                    <label for="id_m2_construidos">M2 construidos:</label>
+                    {{inmueble.m2_construidos}}
+                </p>
+                <p>
+                    <label for="id_m2_totales">M2 totales:</label>
+                    {{inmueble.m2_totales}}
+                </p>
+                <p>
+                    <label for="id_estacionamientos">Estacionamientos:</label>
+                    {{inmueble.estacionamientos}}
+                </p>
+                <p>
+                    <label for="id_habitaciones">Habitaciones:</label>
+                    {{inmueble.habitaciones}}
+                </p>
+                <p>
+                    <label for="id_banios">Número de Baños:</label>
+                    {{inmueble.banios}}
+                </p>
+                <p>
+                    <label for="id_precio">Precio:</label>
+                    {{inmueble.precio}}
+                </p>
+                <p>
+                    <label for="id_tipo_inmueble">Tipo Inmueble:</label>
+                    {{inmueble.tipo_inmueble}}
+                </p>
+                <p>
+                    <label for="id_region">Región:</label>
+                    {{inmueble.region}}
+                </p>
+                <p>
+                    <label for="id_comuna">Comuna:</label>
+                    {{inmueble.comuna}}
+                </p>      
+                <p>
+                    <label for="id_descripcion">Descripción:</label>
+                    {{inmueble.descripcion}}  
+                </p>                
+            </div>
+            <div class="text-center my-3">
+                <a href="{% url 'index' %}" class="btn btn-secondary">Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

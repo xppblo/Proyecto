@@ -1,9 +1,11 @@
 {% extends "base.html" %}
+{% block title %} Actualizar usuario{% endblock %}
 {% block 'content'  %}
 <div class="container">
     <div class="row justify-content-center my-3">
         <div class="col-md-6 col-lg-4">
             <h1 class="text-center">Actualizar datos</h1>
+        <div class="info-box">
             <div class="form-group my-2">
                 <label class="font-weight-bold">Nombre:</label>
                 <input type="text" class="form-control-plaintext font-weight-bold" value="{{ user.first_name }} {{ user.last_name }}" readonly>
@@ -31,6 +33,7 @@
                     <a href="{% url 'lista_inmueble' %}" class="btn btn-secondary">Volver</a>
                 </div>
             </form>
+            </div>
         </div>
     </div>
 </div>

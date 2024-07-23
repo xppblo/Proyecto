@@ -15,7 +15,7 @@ section[id]{
 }
 
 .bg-lightblue{
-    background-color: #00C9F2;
+    background-color: #002464;
     color: #FFFFFF;   
 }
 
@@ -55,3 +55,21 @@ button:focus {
 .navbar .dropdown-menu .form-control {
     width: 200px;
 }
+
+.info-box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-box label {
+    font-weight: bold;
+}
+
+.icon-small {
+    width: 24px; /* Ajusta el ancho según sea necesario */
+    height: 24px; /* Ajusta la altura según sea necesario */
+    vertical-align: middle; /* Alinea verticalmente con el texto */
+  }
+  

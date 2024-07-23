@@ -16,17 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from myapp.views import index, registro, bienvenido, usuario_actualizar, crear_inmueble, InmuebleCreateView
+from myapp.views import index, registro, bienvenido, usuario_actualizar, crear_inmueble,editar_inmueble, borrar_inmueble, ver_inmueble
 
 urlpatterns = [
- path('admin/', admin.site.urls),
- path('', index, name='index'),
- path('registro/', registro, name='registro'),
- path('lista_inmueble', bienvenido, name='lista_inmueble'),
- path("usuario/actualizar", usuario_actualizar, name='usuario_actualizar'),
- path("crear/inmueble",InmuebleCreateView.as_view(), name="crear-inmueble"),
- path("inmueble/crear", crear_inmueble, name='crear_inmueble'),
- path("select2/", include("django_select2.urls")), 
- path('accounts/', include('django.contrib.auth.urls')),
+    path('admin/', admin.site.urls),
+    path('', index, name='index'),
+    path('registro/', registro, name='registro'),
+    path('lista_inmueble', bienvenido, name='lista_inmueble'),
+    path("usuario/actualizar", usuario_actualizar, name='usuario_actualizar'),
+    #path("crear/inmueble",InmuebleCreateView.as_view(), name="crear-inmueble"),
+    path("inmueble/crear", crear_inmueble, name='crear_inmueble'),
+    path('inmueble/<int:pk>/editar/', editar_inmueble, name='editar_inmueble'),
+    path('inmueble/<int:pk>/borrar/', borrar_inmueble, name='borrar_inmueble'),
+    path('inmueble/<int:id>/ver/', ver_inmueble, name='ver_inmueble'),
+    path("select2/", include("django_select2.urls")), 
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 

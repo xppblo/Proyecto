@@ -3,7 +3,7 @@
 {% block title %} Bienvenido cliente{% endblock %}
 
 {% block 'content' %}
-<div class="container">
+<div class="container min-vh-95 flex-column">
     <h2 class="my-2">Hola {{ user.first_name }}</h2>
     {% if  user.usuario.tipo_usuario != 2%}
     <h2 class="text-center py-2">Mis propiedades</h2>
@@ -12,10 +12,10 @@
     {% endif %}
     <hr class="border-2 py-2"/>
     {% if user.usuario.tipo_usuario != 2 %}
-    <a href="{% url 'crear-inmueble' %}" class="btn btn-primary my-3">Crear Inmueble</a>
+    <a href="{% url 'crear_inmueble' %}" class="btn btn-primary my-3">Crear Inmueble</a>
     {% endif %}
     {% block 'cards' %}
-    {% include "cards.html" %}
+    {% include "cards2.html" %}
     {% endblock  %}
 </div>
 {% endblock%}

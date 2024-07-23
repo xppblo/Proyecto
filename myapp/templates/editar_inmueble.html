@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %} Editar Inmueble{% endblock %}
+{% block 'content' %}
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="profile-form">
+                <h2 class="text-center">Editar Inmueble</h2>
+                <div class="info-box p-4 shadow-sm rounded bg-light">
+                    <form method="POST" enctype="multipart/form-data" class="row g-3">
+                        {% csrf_token %}
+                        <div class="col-md-12">
+                            <label for="id_nombre" class="form-label fw-bold">Nombre</label>
+                            {{ form.nombre }}
+                        </div>            
+                        <div class="col-md-12">
+                            <label for="id_m2_construidos" class="form-label fw-bold">M2 Construidos</label>
+                            {{ form.m2_construidos }}
+                        </div>
+                        <div class="col-md-12">
+                            <label for="id_m2_totales" class="form-label fw-bold">M2 Totales</label>
+                            {{ form.m2_totales }}
+                        </div>
+                        <div class="col-md-12">
+                            <label for="id_estacionamientos" class="form-label fw-bold">Estacionamientos</label>
+                            {{ form.estacionamientos }}
+                        </div>
+                        <div class="col-md-12">
+                            <label for="id_habitaciones" class="form-label fw-bold">Habitaciones</label>
+                            {{ form.habitaciones }}
+                        </div>
+                        <div class="col-md-12">
+                            <label for="id_banios" class="form-label fw-bold">Numero de Baños</label>
+                            {{ form.banios }}
+                        </div>
+                        <div class="col-md-12">
+                            <label for="id_direccion" class="form-label fw-bold">Dirección</label>
+                            {{ form.direccion }}
+                        </div>
+                        <div class="col-md-12">
+                            <label for="id_tipo_inmueble" class="form-label fw-bold">Tipo de Inmueble</label>
+                            {{ form.tipo_inmueble }}
+                        </div>
+                        <div class="col-md-12">
+                            <label for="id_precio" class="form-label fw-bold">Precio</label>
+                            {{ form.precio }}
+                        </div>
+                        <div class="col-md-12">
+                            <label for="id_region" class="form-label fw-bold">Región</label>
+                            {{ form.region }}
+                            
+                        </div>
+                        <div class="col-md-12">
+                            <label for="id_comuna" class="form-label fw-bold">Comuna</label>
+                            {{ form.comuna }}
+                        </div>
+                        <div class="col-md-12">
+                            <label for="id_descripcion" class="form-label fw-bold">Descripción</label>
+                            {{ form.descripcion }}
+                        </div>
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-primary">Actualizar Inmueble</button>
+                            <a href="{% url 'lista_inmueble' %}" class="btn btn-secondary">Volver</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

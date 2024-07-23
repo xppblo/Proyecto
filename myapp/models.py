@@ -17,7 +17,7 @@ class Comuna(models.Model):
     region = models.ForeignKey(Region, null=False, blank=False, on_delete= models.CASCADE)
     
     def __str__(self):
-        return f" {self.nombre} - {self.region}"
+        return f" {self.nombre}"
     
 class TipoUsuario(models.Model):
     nombre = models.CharField(max_length=20, null=False, blank=False)

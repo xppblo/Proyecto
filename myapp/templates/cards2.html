@@ -1,4 +1,3 @@
-{% load static %} 
 <div class="container">
   <div class="row justify-content-center">
     {% for inmueble in inmuebles %}
@@ -7,11 +6,10 @@
         <div class="card-body">
           <h5 class="card-title">{{inmueble.nombre}}</h5>
           <hr class="border-2">
-          <p class="card-text">
-            <img src="{% static "img/map-location-dot-solid.svg" %}" alt="Ubicación" class="icon-small mx-2"/>{{inmueble.comuna}} - {{inmueble.region}}
-          </p>
+          <p class="card-text">{{inmueble.comuna}} - {{inmueble.region}}</p>
           <h5 class="text-end"> Precio: ${{inmueble.precio}}</h5>
-          <a href={% url 'ver_inmueble' inmueble.pk %} class="btn btn-primary">Ver inmueble</a>
+          <a href="{% url 'editar_inmueble' inmueble.pk %}" class="btn btn-secondary">Editar</a>
+          <a href="{% url 'borrar_inmueble' inmueble.pk %}" class="btn btn-danger">Borrar</a>
         </div>
       </div>
     </div>

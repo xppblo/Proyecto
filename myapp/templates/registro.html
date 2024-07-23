@@ -6,8 +6,7 @@
 <div class="container">
     
 <h2 class="text-center py-4">Registro de Usuario</h2>
-<hr class="border-2" />
-
+<div class="info-box my-5">
 <form action="{% url "registro" %}" method="post"> 
     {% csrf_token %}
     <div>
@@ -41,6 +40,6 @@
 
     <button type="submit" class="btn btn-primary bg-primary my-3">Registrarse</button>
 </form>
-
+</div>
 </div>
 {% endblock%}

@@ -1,69 +1,81 @@
 {% extends 'base.html'%}
+{% block title %} Crear Inmueble{% endblock %}
 {%load static %}
 
 {%block 'content'%}
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <h1 class="text-center my-4">Crear nuevo Inmueble</h1>
-        <form method="POST" action="/lista_inmueble">
-            {% csrf_token %}
-        <p>
-            <label for="id_nombre">Nombre:</label>
-            <input type="text" name="nombre" class="form-control" maxlength="100" required="" id="id_nombre">
-        </p>
-        <p>
-            <label for="id_direccion">Dirección:</label>
-            <input type="text" name="direccion" class="form-control" maxlength="255" required="" id="id_direccion">
-        </p>
-        <p>
-            <label for="id_depto">Numero de Departamento:</label>
-            <input type="number" name="depto" class="form-control" min="0" value="0" maxlength="20" id="id_depto">
-        </p>
-        <p>
-            <label for="id_m2_construidos">M2 construidos:</label>
-            <input type="number" name="m2_construidos" class="form-control" min="0" value="0" step="any" required="" id="id_m2_construidos">
-        </p>
-        <p>
-            <label for="id_m2_totales">M2 totales:</label>
-            <input type="number" name="m2_totales" class="form-control" min="0" value="0" step="any" required="" id="id_m2_totales">
-        </p>
-        <p>
-            <label for="id_estacionamientos">Estacionamientos:</label>
-            <input type="number" name="estacionamientos" class="form-control" min="0" max="10" value="0" required="" id="id_estacionamientos">
-        </p>
-        <p>
-            <label for="id_habitaciones">Habitaciones:</label>
-            <input type="number" name="habitaciones" class="form-control" min="0" max="10" value="0" required="" id="id_habitaciones">
-        </p>
-        <p>
-            <label for="id_banios">Numero de Baños:</label>
-            <input type="number" name="banios" class="form-control" min="0" max="10" value="0" required="" id="id_banios">
-        </p>
-        <p>
-            <label for="id_precio">Precio:</label>
-            <input type="number" name="precio" class="form-control" min="0" value="0" step="any" required="" id="id_precio">
-        </p>
-        <p>
-            <label for="id_tipo_inmueble">Tipo Inmueble:</label>
-            {{form.tipo_inmueble}}
-        </p>
-        <p>
-            <label for="id_tipo_inmueble">Región:</label>
-            {{form.region}}
-        </p>
-        <p>
-            <label for="id_tipo_inmueble">Comuna:</label>
-            {{form.comuna}}
-        </p>      
-        <p>
-            <label for="id_descripcion">Descripción:</label>
-            <textarea name="descripcion" cols="10" rows="2" class="form-control" required="" id="id_descripcion"></textarea>  
-        </p>                
-        <div class="text-center my-3">
-            <button type="submit" class="btn btn-primary">Crear Inmueble</button>
-            <a href="{% url 'lista_inmueble' %}" class="btn btn-secondary">Volver</a>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center my-4">Crear Inmueble</h1>
+            <div class="info-box my-5">
+            <form method="post">
+                {% csrf_token %}
+                <div class="col-md-12">
+                    <label for="id_nombre" class="form-label">Nombre</label>
+                    {{ form.nombre }}
+                </div>
+                <div class="col-md-12">
+                    <label for="id_m2_construidos" class="form-label">M2 Construidos</label>
+                    {{ form.m2_construidos }}
+                </div>
+                <div class="col-md-12">
+                    <label for="id_m2_totales" class="form-label">M2 Totales</label>
+                    {{ form.m2_totales }}
+                </div>
+                <div class="col-md-12">
+                    <label for="id_estacionamientos" class="form-label">Estacionamientos</label>
+                    {{ form.estacionamientos }}
+                </div>
+                <div class="col-md-12">
+                    <label for="id_habitaciones" class="form-label">Habitaciones</label>
+                    {{ form.habitaciones }}
+                </div>
+                <div class="col-md-12">
+                    <label for="id_banios" class="form-label">Numero de Baños</label>
+                    {{ form.banios }}
+                </div>
+                <div class="col-md-12">
+                    <label for="id_direccion" class="form-label">Dirección</label>
+                    {{ form.direccion }}
+                </div>
+                <div class="col-md-12">
+                    <label for="id_tipo_inmueble" class="form-label">Tipo de Inmueble</label>
+                    {{ form.tipo_inmueble }}
+                </div>
+                <div class="col-md-12">
+                    <label for="id_precio" class="form-label">Precio</label>
+                    {{ form.precio }}
+                </div>
+                <div class="col-md-12">
+                    <label for="id_region" class="form-label">Región</label>
+                    {{ form.region }}
+                </div>
+                <div class="col-md-12">
+                    <label for="id_comuna" class="form-label">Comuna</label>
+                    {{ form.comuna }}
+                </div>
+                <div class="col-md-12">
+                    <label for="id_descripcion" class="form-label">Descripción</label>
+                    {{ form.descripcion }}
+                </div>
+                <div class="text-center my-3">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+            {% if form.errors %}
+            <div class="alert alert-danger mt-3">
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                        <li>{{ field }}: {{ errors|join:", " }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            <div class="text-center my-3">
+                <a href="{% url 'lista_inmueble' %}" class="btn btn-secondary">Volver</a>
+            </div>
+            </div>
         </div>
-        </form>
     </div>
 </div>
 {%endblock%}
